@@ -14,6 +14,7 @@ const CartPage = () => {
           <table className="table table-striped">
             <thead>
               <tr>
+                <th>Product Image</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -24,7 +25,10 @@ const CartPage = () => {
             <tbody>
               {cart.map((item) => (
                 <tr key={item.id}>
-                  <td>{item.name}</td>
+                  <td><img  
+                  className="cart-product-image"
+                  src = {item.image} alt={item.title}/></td>
+                  <td>{item.title}</td>
                   <td>${item.price}</td>
                   <td>
                     <button
