@@ -1,15 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import MainPage from "./pages/MainPage";
 
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/Productpage";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const App = () => {
   return (
-    <CartProvider>
+      <Provider store = {store}>
       <Router>
         <Navbar />
         <Routes>
@@ -18,7 +19,8 @@ const App = () => {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
       </Router>
-    </CartProvider>
+      </Provider>
+   
   );
 };
 

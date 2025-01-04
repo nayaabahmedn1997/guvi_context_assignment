@@ -1,6 +1,12 @@
 import React from 'react'
+import { addToCart } from '../store/slices/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
-const Card = ({cardInfo, addToCart}) => {
+const Card = ({cardInfo}) => {
+
+    const dispatch = useDispatch();
+    const cart = useSelector(state=>state.cart);
+    console.log(cart)
   return (
    
    
@@ -22,7 +28,7 @@ const Card = ({cardInfo, addToCart}) => {
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div className="text-center">
                         
-                        <button className="btn btn-primary" onClick={() => addToCart(cardInfo)}>
+                        <button className="btn btn-primary" onClick={() =>dispatch( addToCart(cardInfo))}>
                                     Add to Cart
                                     </button>
                         </div>
